@@ -1,5 +1,6 @@
 from Song import Song
 
+# when playlist gets created there is nothing and when there is a first song that is assigned to the first song variable
 class Playlist:
   def __init__(self):
     self.__first_song = None
@@ -8,10 +9,11 @@ class Playlist:
   # TODO: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
-    # created a song object with a title. creates 1 song as the only song in the playlist
     song = Song(title)
-    self.__first_song = song
-
+ 
+    # created a song object with a title. creates 1 song as the only song in the playlist
+    if self.__first_song == None:
+      self.__first_song = song
 
 
   # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
@@ -30,7 +32,10 @@ class Playlist:
   # TODO: Create a method called length, which returns the number of songs in the playlist.
 
   def length(self):
-    pass
+    if self.__first_song == None:
+      return 0
+    return 1
+      
 
 
   # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
