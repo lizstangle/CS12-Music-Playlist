@@ -14,12 +14,10 @@ class Playlist:
   #  If there is no first song, the "new_song" becomes the new first song on the list.   
     if self.__first_song == None:
       self.__first_song = new_song
-      # There is no next song, it's the last song.
-      new_song.next = None
       return
 
     # set new song's pointer to where head is pointing
-    new_song.next = self.__first_song
+    new_song.set_next_song(self.__first_song)
     # set pointer to point at new song
     self.__first_song = new_song
  
@@ -38,13 +36,19 @@ class Playlist:
 
 
   # TODO: Create a method called length, which returns the number of songs in the playlist.
-
+# if there are no songs will print zero.
   def length(self):
     if self.__first_song == None:
       return 0
-    while __first_song ==
+    #  while loop counter for songs using getter method
+    count = 0
+    curr = self.__first_song
+    while curr != None:
+      count += 1
+      curr = curr.get_next_song() 
+    return count
 
-
+   
 
   # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
 
@@ -53,7 +57,8 @@ class Playlist:
   # 2. Song Title 2
   # 3. Song Title 3
 
-  def print_songs(self):
-   print(self.__first_song)
+  # def print_songs(self):
+  #  print(self.__first_song)
+  #  print(self.__new_song)
 
   
