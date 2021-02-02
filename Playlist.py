@@ -9,12 +9,20 @@ class Playlist:
   # TODO: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
-    song = Song(title)
- 
-    # created a song object with a title. creates 1 song as the only song in the playlist
-    if self.__first_song == None:
-      self.__first_song = song
+    new_song = Song(title)
 
+  #  If there is no first song, the "new_song" becomes the new first song on the list.   
+    if self.__first_song == None:
+      self.__first_song = new_song
+      # There is no next song, it's the last song.
+      new_song.next = None
+      return
+
+    # set new song's pointer to where head is pointing
+    new_song.next = self.__first_song
+    # set pointer to point at new song
+    self.__first_song = new_song
+ 
 
   # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
 
@@ -34,8 +42,8 @@ class Playlist:
   def length(self):
     if self.__first_song == None:
       return 0
-    return 1
-      
+    while __first_song ==
+
 
 
   # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
