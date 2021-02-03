@@ -20,7 +20,6 @@ class Playlist:
     new_song.set_next_song(self.__first_song)
     # set pointer to point at new song
     self.__first_song = new_song
- 
 
   # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
 
@@ -40,25 +39,63 @@ class Playlist:
 
   # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
   # If the title of the first song is the title we're looking for then remove it by making first song NONE.
-  
-  def remove_song(self, title):
-    cur_node = self.__first_song
-    if cur_node != None:  
-      if cur_node.get_title() == title:
-        self.__first_song = cur_node.next
-        return None
-    
-    prev = None
-    if cur_node != None:  
-      while cur_node.get_title() != title and cur_node != None:
-        prev = cur_node
-        cur_node = cur_node.get_next_song()
 
-    if cur_node == None:
+  def remove_song(self, title):
+    if self.__first_song == None:
       return
+    curr = curr.get_next_song()
+    if self.__first_song == curr.get_next_song()
+      return None
+      set_next_song(self.__first_song)
+      self.__next_song = self.__first_song
+
+    # cur_node = self.__title
+    # if cur_node != None:  
+    #   if cur_node.get_title() == title:
+    #     self.__title = next_title
+    #     cur_node = None
+    #     return
+    
+    # prev = None
+    # if cur_node != None:  
+    #   while cur_node.get_title() != title and cur_node != None:
+    #     prev = cur_node
+    #     cur_node = cur_node.get_next_song()
+
+    # if cur_node == None:
+    #   return
+        
+    #     return count
+    #   count += 1  
+    #   curr = curr.get_next_song() 
+    # return -1
+
+
+
+
+
+    # cur_node = self.__first_song
+    # if cur_node != None:  
+    #   if cur_node and cur_node.get_title() == title:
+    #     self.__first_song = cur_node.next
+    #     cur_node = None
+    #     return
+    
+    # prev = None
+    # if cur_node != None:  
+    #   while cur_node and cur_node.get_title() != None:
+    #     prev = cur_node
+    #     cur_node = cur_node.get_next_song()
+
+    # if cur_node == None:
+    #   return
 
     # prev.next = cur_node.next
     # cur_node = None
+
+
+
+
 
     
     # if self.__first_song.get_title() == title:
