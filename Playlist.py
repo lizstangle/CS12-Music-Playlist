@@ -38,15 +38,37 @@ class Playlist:
       curr = curr.get_next_song() 
     return -1
 
-
   # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
-
+  # If the title of the first song is the title we're looking for then remove it by making first song NONE.
+  
   def remove_song(self, title):
-    pass
-    # remove_song = Song(title)
-    # count = 0
-    # while count != title
-    #   song = node.next
+    cur_node = self.__first_song
+    if cur_node != None:  
+      if cur_node.get_title() == title:
+        self.__first_song = cur_node.next
+        return None
+    
+    prev = None
+    if cur_node != None:  
+      while cur_node.get_title() != title and cur_node != None:
+        prev = cur_node
+        cur_node = cur_node.get_next_song()
+
+    if cur_node == None:
+      return
+
+    # prev.next = cur_node.next
+    # cur_node = None
+
+    
+    # if self.__first_song.get_title() == title:
+    #   return self.__first_song == None
+    # curr = self.__first_song
+    # while curr.get_title() != title:
+    #   if curr.get_title() == title:
+    #     return None
+
+    #   song = song.next
     #   count+=1
     # remove song  
 
