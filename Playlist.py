@@ -24,8 +24,19 @@ class Playlist:
 
   # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
 
-  def find_song( self, title):
-    pass 
+  def find_song(self, title):
+    if self.__first_song == None:
+      return -1
+
+    #  If there is no first song, the "new_song" becomes the new first song on the list.   
+    count = 0
+    curr = self.__first_song
+    while curr != None:
+      if(title == curr.get_title()):
+        return count
+      count += 1  
+      curr = curr.get_next_song() 
+    return -1
 
 
   # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
