@@ -6,7 +6,7 @@ class Playlist:
     self.__first_song = None
 
 
-  # TODO: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
+  # Done: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
     new_song = Song(title)
@@ -21,7 +21,7 @@ class Playlist:
     # set pointer to point at new song
     self.__first_song = new_song
 
-  # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
+  # DONE: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
 
   def find_song(self, title):
     if self.__first_song == None:
@@ -31,44 +31,33 @@ class Playlist:
     count = 0
     curr = self.__first_song
     while curr != None:
-      if(title == curr.get_title()):
+      if(title.lower() == curr.get_title().lower()):
         return count
       count += 1  
       curr = curr.get_next_song() 
     return -1
 
-  # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
+  # DONE: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
   # If the title of the first song is the title we're looking for then remove it by making first song NONE.
 
   def remove_song(self, title):
 
+# checking that the first song matches the song that we want to remove
+# create variable cur_song and set it to the first_song 
     cur_song = self.__first_song
-    # if cur_song != None and cur_song.get_title == title:
-    #   self.__first_song = cur_song.get_next_song()
-    # return
+    if cur_song != None and cur_song.get_title().lower() == title.lower():
+      self.__first_song = cur_song.get_next_song()
 
     prev_song = None
     while cur_song != None: 
-      if cur_song.get_title() == title:
-        song = cur_song.get_next_song().get_next_song()
-        cur_song.set_next_song(song.get_title()) 
+      # if the title I'm searching for matchees the name of the song
+      if cur_song.get_title().lower() == title.lower() and prev_song != None:
+        prev_song.set_next_song(cur_song.get_next_song())  
+      prev_song = cur_song  
+      # change the pointer to the next song
       cur_song = cur_song.get_next_song()
 
-      # print('... cur=', cur_song, ' prev=', prev_song)
-      # prev_song = cur_song
-      # cur_song == cur_song.get_next_song
-
-    # print('-> cur=', cur_song, ' prev=', prev_song)
-
-
-    # if self.__first_song == curr.get_next_song():
-    #   return None
-    #   set_next_song(self.__first_song)
-    #   self.__next_song = self.__first_song
-
-
-
-  # TODO: Create a method called length, which returns the number of songs in the playlist.
+  # DONE: Create a method called length, which returns the number of songs in the playlist.
   # if there are no songs will print zero.  
   def length(self):
     if self.__first_song == None:
@@ -101,6 +90,6 @@ class Playlist:
     curr = self.__first_song
     while curr != None:
       count += 1
-      print(f'{count} {curr}')
+      print(f'{count} {curr.get_title()}')
       curr = curr.get_next_song() 
     return count
