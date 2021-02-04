@@ -41,81 +41,30 @@ class Playlist:
   # If the title of the first song is the title we're looking for then remove it by making first song NONE.
 
   def remove_song(self, title):
-    if self.__first_song == None:
-      return
-    curr = curr.get_next_song()
-    if self.__first_song == curr.get_next_song()
-      return None
-      set_next_song(self.__first_song)
-      self.__next_song = self.__first_song
 
-    # cur_node = self.__title
-    # if cur_node != None:  
-    #   if cur_node.get_title() == title:
-    #     self.__title = next_title
-    #     cur_node = None
-    #     return
-    
-    # prev = None
-    # if cur_node != None:  
-    #   while cur_node.get_title() != title and cur_node != None:
-    #     prev = cur_node
-    #     cur_node = cur_node.get_next_song()
+    cur_song = self.__first_song
+    # if cur_song != None and cur_song.get_title == title:
+    #   self.__first_song = cur_song.get_next_song()
+    # return
 
-    # if cur_node == None:
-    #   return
-        
-    #     return count
-    #   count += 1  
-    #   curr = curr.get_next_song() 
-    # return -1
+    prev_song = None
+    while cur_song != None: 
+      if cur_song.get_title() == title:
+        song = cur_song.get_next_song().get_next_song()
+        cur_song.set_next_song(song.get_title()) 
+      cur_song = cur_song.get_next_song()
+
+      # print('... cur=', cur_song, ' prev=', prev_song)
+      # prev_song = cur_song
+      # cur_song == cur_song.get_next_song
+
+    # print('-> cur=', cur_song, ' prev=', prev_song)
 
 
-
-
-
-    # cur_node = self.__first_song
-    # if cur_node != None:  
-    #   if cur_node and cur_node.get_title() == title:
-    #     self.__first_song = cur_node.next
-    #     cur_node = None
-    #     return
-    
-    # prev = None
-    # if cur_node != None:  
-    #   while cur_node and cur_node.get_title() != None:
-    #     prev = cur_node
-    #     cur_node = cur_node.get_next_song()
-
-    # if cur_node == None:
-    #   return
-
-    # prev.next = cur_node.next
-    # cur_node = None
-
-
-
-
-
-    
-    # if self.__first_song.get_title() == title:
-    #   return self.__first_song == None
-    # curr = self.__first_song
-    # while curr.get_title() != title:
-    #   if curr.get_title() == title:
-    #     return None
-
-    #   song = song.next
-    #   count+=1
-    # remove song  
-
-    # def delete_node(self,location):
-    #     node = ll.cur_node
-    #     count = 0
-    #     while count != location:
-    #         node = node.next
-    #         count+=1
-    #     delete node
+    # if self.__first_song == curr.get_next_song():
+    #   return None
+    #   set_next_song(self.__first_song)
+    #   self.__next_song = self.__first_song
 
 
 
