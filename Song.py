@@ -3,6 +3,7 @@ class Song:
   def __init__(self, title):
       self.__title = title
       self.__next_song = None
+      self.set_title(title)
 
 
   # DONE: Create a getter method for the title attribute, called get_title
@@ -11,9 +12,9 @@ class Song:
   
   
   # DONE: Create a setter method for the next_song attribute, called set_title. Make sure titles are type cased to strings and are Title Cased.
-  def set_title(self, next_song):
-    self.__title = next_song
-
+  def set_title(self, title):
+    title = title.title()
+    self.__title = title
 
   # DONE: Create a getter method for the next_song attribute, called get_next_song
   def get_next_song(self):
